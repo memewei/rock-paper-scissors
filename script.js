@@ -26,10 +26,37 @@ function playRound(playerInput, computerSelection){
     }
 }
 
-const computerSelection = getComputerChoice();
-let playerInput = playerSelection();
+function game(playerInput,computerSelection){
+    while(roundNumber <= 5){
+        console.log(`Round ${roundNumber}! Fight!`)
+        playerInput = playerSelection();
+        computerSelection = getComputerChoice();
+        playRound(playerInput,computerSelection);
+        if (playerInput == "rock" && computerSelection == "paper" || playerInput == "scissors" && computerSelection == "rock" || playerInput == "paper" && computerSelection == "scissors"){
+            computerScore++;
+            console.log(`Computer: ${computerScore} \nYou: ${playerScore}`);
+        }else if(playerInput === "rock" && computerSelection == "scissors" || playerInput == "scissors" && computerSelection == "paper" || playerInput == "paper" && computerSelection == "rock"){
+            playerScore++;
+            console.log(`Computer: ${computerScore} \nYou: ${playerScore}`);
+        }else{
+            console.log(`Computer: ${computerScore} \nYou: ${playerScore}`);
+        }
+        roundNumber++;
+    }
 
-console.log(`The computer chose ${computerSelection}`);
-console.log(`You chose ${playerInput}`);
+    if(roundNumber == 6 && playerScore > computerScore){
+        console.log("Congratulations! You have won against the computer! Refresh the page to play again!");
+    }else if(roundNumber == 6 && computerScore > playerScore){
+        console.log("Boohoo! You lost against the computer! Better luck next time! Refresh the page to play again!");
+    }
+    else{
+        console.log("Oh! You two are good! Both of you tied! Refresh the page to play again!");
+    }
+}
 
-playRound(playerInput,computerSelection);
+
+let roundNumber = 1;
+let playerScore = 0;
+let computerScore = 0;
+
+game();
