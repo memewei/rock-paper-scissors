@@ -3,6 +3,12 @@ img{
     cursor: pointer;
 }
 
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #game-container{
     display: flex;
     justify-content: space-evenly;

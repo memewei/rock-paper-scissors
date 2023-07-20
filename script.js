@@ -1,12 +1,13 @@
 function beginAnimation(){
     fadeIn();
-    let desc1 = document.querySelector("#desc1");
+    const desc1 = document.querySelector("#desc1");
     let desc1Span = desc1.querySelectorAll("span");
 
     desc1Span = Array.from(desc1Span);
 
-    let desc2 = document.querySelector("#desc2");
-    let desc3 = document.querySelector("#desc3");
+    const desc2 = document.querySelector("#desc2");
+    const desc3 = document.querySelector("#desc3");
+    const desc4 = document.querySelector("#desc4");
 
     desc1Span[desc1Span.length - 1].ontransitionend = () =>{
         desc1.classList.add("fade-out");
@@ -42,16 +43,16 @@ function beginAnimation(){
                             desc4.classList.remove("disappear");
                             fadeIn();
 
-                            let desc4Span = desc4.querySelectorAll("span");
+                            const desc4Span = desc4.querySelectorAll("span");
                             desc4Span = Array.from(desc4Span);
 
                             desc4Span[desc4Span.length - 1].ontransitionend = () =>{
-                                let cta = document.querySelector("#cta");
+                                const cta = document.querySelector("#cta");
 
                                 cta.classList.add("dropdown");
 
                                 cta.addEventListener("animationend", () =>{
-                                    let gameContainer = document.querySelector("#game-container");
+                                    const gameContainer = document.querySelector("#game-container");
 
                                     setTimeout(function(){
                                         gameContainer.classList.add("fade-in");
@@ -88,7 +89,7 @@ function playRound(playerInput, computerSelection){
 }
 
 function fadeIn(){
-    let text = document.querySelector(".animate");
+    const text = document.querySelector(".animate");
 
     let strText = text.textContent;
     let splitText = strText.split("");
@@ -96,6 +97,24 @@ function fadeIn(){
 
     for(i = 0; i < splitText.length; i++){
         text.innerHTML += `<span>${splitText[i]}</span>`;
+    }
+
+    let char = 0;
+    let timer = setInterval(onTick, 50);
+    
+    function onTick(){
+        const span = text.querySelectorAll("span")[char];
+        span.classList.add("fade");
+        char++;
+    
+        if(char === splitText.length){
+            complete();
+            return;
+        }
+    }
+    function complete(){
+        clearInterval(timer);
+        timer = null;
     }
 }
 
@@ -111,7 +130,7 @@ function displayResults(str){
 }
 
 function keepPlayerPoints(){
-    let playerPointBox = document.querySelector("#player-points");
+    const playerPointBox = document.querySelector("#player-points");
 
     playerPointBox.animate([{opacity: 0},{opacity: 1}],{
         duration: 300,
@@ -125,7 +144,7 @@ function keepPlayerPoints(){
 }
 
 function keepComputerPoints(){
-    let computerPointBox = document.querySelector("#computer-points");
+    const computerPointBox = document.querySelector("#computer-points");
 
     computerPointBox.animate([{opacity: 0},{opacity: 1}],{
         duration: 300,
@@ -181,14 +200,14 @@ let computerScore = 0;
 let playerInput;
 let computerSelection;
 const array = ["Rock", "Paper", "Scissors"];
-let main = document.querySelector("main");
-let span = document.querySelectorAll("span");
-let desc = document.querySelector(".desc");
+const main = document.querySelector("main");
+const span = document.querySelectorAll("span");
+const desc = document.querySelector(".desc");
 let buttons = document.querySelectorAll(".button");
-let container = document.querySelector("#results-container");
-let endPage = document.querySelector("#end-page");
-let endDesc = document.querySelector("#end-desc");
-let returnMainBtn = document.querySelector("#retrial-btn");
+const container = document.querySelector("#results-container");
+const endPage = document.querySelector("#end-page");
+const endDesc = document.querySelector("#end-desc");
+const returnMainBtn = document.querySelector("#retrial-btn");
 
 
 buttons.forEach((button) => {
