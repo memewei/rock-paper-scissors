@@ -1,5 +1,4 @@
 img{
-    width: 200px;
     height: 200px;
     cursor: pointer;
 }
@@ -10,3 +9,102 @@ img{
     align-items: center;
 }
 
+#score-label{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.results{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#rock{
+    transform: scaleX(-1);
+}
+
+.disappear{
+    display: none;
+}
+
+#results-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cta{
+    opacity: 0;
+    transform: translateY(-150px);
+}
+
+span{
+    opacity: 0;
+    transition: all 1s ease;
+}
+.fade{
+    opacity: 1;
+}
+
+#desc1.fade-out,
+#desc2.fade-out,
+#desc3.fade-out,
+#desc4.fade-out,
+.fade-out{
+    animation-name: fade-out;
+    animation-duration: 800ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-out{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+#cta.dropdown{
+    animation-name: dropdown;
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.58, 0.3, 0.49, 1.39);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes dropdown{
+    from{
+        opacity: 0;
+        transform: translateY(-150px);
+        pointer-events: none;
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+        pointer-events: all;
+    }
+}
+
+#game-container.fade-in{
+    animation-name: fade-in;
+    animation-duration: 00ms;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fade-in{
+    from{
+        opacity: 0;
+        pointer-events: none;
+    }
+    to{
+        opacity: 1;
+        pointer-events: all;
+    }
+}

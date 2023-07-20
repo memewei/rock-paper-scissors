@@ -4,30 +4,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rock Paper Scissors</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1 id="title">SPACE ODYSSEY</h1>
-        <p class="desc">You are a space adventurer! Spending your time drifting across the vast galaxies...</p>
-        <p class="desc">Today, you are scheduled for a court hearing for breaking 74 different laws!</p>
-        <p class="desc">But, if you can win against the judge in a game of Rock, Paper, Scissors...</p>
-        <p class="desc">You are free to go!</p>
-        <p class="desc">Are you ready? The best of 5 rounds wins!</p>
-        <button id="initiate">Start game</button>
-        <div id="game-container">
-            <div class="button" id="rock">
-                <img src="images/fist_rock.png" alt="rock" onclick="btnClick();">
+        <main>
+            <h1 id="title">SPACE ODYSSEY</h1>
+            <p class="desc animate" id="desc1">You are a space adventurer! Spending your time drifting across the vast galaxies...</p>
+            <p class="desc disappear" id="desc2">Today, you are scheduled for a court hearing for breaking 74 different laws!</p>
+            <p class="desc disappear" id="desc3">But, if you can win against the judge in a game of Rock, Paper, Scissors... You are free to go!</p>
+            <p class="desc disappear" id="desc4">Are you ready? The first to 5 points wins!</p>
+            <p id="cta">What will you throw out?</p>
+            <div id="game-container">
+                <div class="button" id="rock">
+                    <img src="images/fist_rock.png" alt="rock">
+                </div>
+                <div class="button" id="paper">
+                    <img src="images/palm_paper.png" alt="paper">
+                </div>
+                <div class="button" id="scissors">
+                    <img src="images/peace_scissors.png" alt="scissors">
+                </div>
             </div>
-            <div class="button" id="paper">
-                <img src="images/palm_paper.png" alt="paper" onclick="btnClick();">
+            <div id="score-label">
+                <div class="results" id="player">
+                    <p class="label">Player</p>
+                    <div id="player-points">0</div>
+                </div>
+                <div class="results" id="computer">
+                    <p class="label">Computer</p>
+                    <div id="computer-points">0</div>
+                </div>
             </div>
-            <div class="button" id="scissors">
-                <img src="images/peace_scissors.png" alt="scissors" onclick="btnClick();">
-            </div>
+            <div id="results-container"></div>
+            <script src="script.js"></script>
+        </main>
+        <div id="end-page" class="disappear">
+            <div id="end-desc"></div>
+            <a id="retrial-btn"></a>
         </div>
-        <div id="game-results">
-            <div id="player-points">Player: </div>
-            <div id="computer-points">Computer: </div>
-        </div>
-        <script src="script.js"></script>
     </body>
 </html>
