@@ -5,3 +5,8 @@ Through this project, I learnt how to use:
 - logical assignments
 - Math.random
 - while loop
+
+Generating UI:
+- images as buttons
+- finding breaking points in code
+- proper terminology (eg. using ".button" instead of "button" in querySelector can really affect your code)

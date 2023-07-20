@@ -1,22 +1,10 @@
 function getComputerChoice(){
-    const number = Math.floor(Math.random()*1000);
-    if(number % 3 === 0){
-        return "rock";
-    }else if(number % 3 === 1){
-        return "paper";
-    }else{
-        return "scissors";
-    }
-}
-
-function playerSelection(){
-    let playerInput = prompt("What are you going to throw out? Rock, Paper, or Scissors? ");
-    playerInput.toLowerCase();
-
-    return playerInput;
+    return array[~~(Math.random() * array.length)];
 }
 
 function playRound(playerInput, computerSelection){
+    computerSelection = getComputerChoice().toLowerCase();
+    playerInput = playerInput.toLowerCase();
     if (playerInput == "rock" && computerSelection == "paper" || playerInput == "scissors" && computerSelection == "rock" || playerInput == "paper" && computerSelection == "scissors"){
         console.log(`You lost to the computer! You chose ${playerInput} while the computer chose ${computerSelection}`);
     }else if(playerInput === "rock" && computerSelection == "scissors" || playerInput == "scissors" && computerSelection == "paper" || playerInput == "paper" && computerSelection == "rock"){
@@ -29,7 +17,7 @@ function playRound(playerInput, computerSelection){
 function game(playerInput,computerSelection){
     while(roundNumber <= 5){
         console.log(`Round ${roundNumber}! Fight!`)
-        playerInput = playerSelection();
+        playerInput = getplayerSelection();
         computerSelection = getComputerChoice();
         playRound(playerInput,computerSelection);
         if (playerInput == "rock" && computerSelection == "paper" || playerInput == "scissors" && computerSelection == "rock" || playerInput == "paper" && computerSelection == "scissors"){
@@ -54,9 +42,26 @@ function game(playerInput,computerSelection){
     }
 }
 
+function btnClick(playerInput, computerSelection){
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const img = button.querySelector("img");
+            playerInput = img.alt.toLowerCase();
+            
+            playRound(playerInput, computerSelection);
+        });
+    });
+}
 
 let roundNumber = 1;
 let playerScore = 0;
 let computerScore = 0;
+let playerInput;
+let computerSelection;
+const array = ["Rock", "Paper", "Scissors"];
+let buttons = document.querySelectorAll(".button");
 
-game();
+computerSelection = getComputerChoice();
+console.log(computerSelection);
+console.log(playerInput);
+
