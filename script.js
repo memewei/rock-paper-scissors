@@ -200,7 +200,7 @@ function endGame() {
 }
 
 function restartGame() {
-  fadeIn();
+  beginAnimation();
   container.textContent = "";
   playerScore = 0;
   computerScore = 0;
