@@ -1,6 +1,7 @@
 :root{
   margin: 0;
   padding: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body{
@@ -105,12 +106,19 @@ h1 {
 }
 
 #end-page button{
-  height: 30px;
-  width: 100px;
+  height: 60px;
+  width: 180px;
   background-color: black;
   border: 2px solid white;
   border-radius: 18px;
   color: white;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+#end-page.disappear{
+  display: none;
 }
 
 #end-page button:hover{
