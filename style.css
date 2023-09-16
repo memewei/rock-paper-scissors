@@ -1,0 +1,210 @@
+:root{
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  display: grid;
+  grid-template-rows: 10vh 80vh 10vh;
+}
+
+img {
+  height: 200px;
+  cursor: pointer;
+  filter: invert(100%);
+}
+
+.button{
+  height: 200px;
+  width: 200px;
+  border: 3px solid white;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#scissors img{
+  height: 180px;
+}
+
+#paper img{
+  transform: translateX(10px);
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+.desc{
+  text-align: center;
+}
+
+#game-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#score-label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 20px;
+  width: 800px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#rock {
+  transform: scaleX(-1);
+}
+
+.disappear {
+  display: none;
+}
+
+#results-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+#cta {
+  opacity: 0;
+  transform: translateY(-150px);
+  text-align: center;
+}
+
+#end-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+#end-page button{
+  height: 60px;
+  width: 180px;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 18px;
+  color: white;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+#end-page.disappear{
+  display: none;
+}
+
+#end-page button:hover{
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 0px 0px 5px white;
+}
+
+span {
+  opacity: 0;
+  transition: all 1s ease;
+}
+.fade {
+  opacity: 1;
+}
+
+footer{
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 10vh;
+}
+
+footer a{
+  color: black;
+}
+
+#desc1.fade-out,
+#desc2.fade-out,
+#desc3.fade-out,
+#desc4.fade-out,
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: 800ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#cta.dropdown {
+  animation-name: dropdown;
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.58, 0.3, 0.49, 1.39);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+    pointer-events: none;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: all;
+  }
+}
+
+#game-container.fade-in {
+  animation-name: fade-in;
+  animation-duration: 00ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    pointer-events: none;
+  }
+  to {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
